@@ -1,0 +1,15 @@
+# Exclude compiled .js files
+*.js
+
+# Exclude dependencies
+node_modules/
+
+# Exclude dist
+dist
+output
+
+# Sensitive Data
+GOOGLE_APPLICATION_CREDENTIALS*
+
+# .env
+.env
