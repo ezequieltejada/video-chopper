@@ -26,11 +26,11 @@ Before running this app this environment variables must be set:
 
 @ToDo:
 
-* Accept a different destination path
-* Configure GCloud CLI in Dockerfile
-* Improve error handling
-* Add tests
-* Allow to receive a firebase config file to function on any project
-* Allow to receive a WebHook URL to notify finished jobs
-* (index.ts) parameterize projectId and storageBucket - it's related with receiving firebase config file.
-* (src/splitAndSaveParts.ts) Explore options with the ffmpeg library
+* [Accept a different destination path](https://github.com/ezequieltejada/video-chopper/issues/1)
+* [Configure GCloud CLI in Dockerfile](https://github.com/ezequieltejada/video-chopper/issues/2)
+* [Improve error handling](https://github.com/ezequieltejada/video-chopper/issues/3)
+* [Add tests](https://github.com/ezequieltejada/video-chopper/issues/4)
+* [Allow to receive a firebase config file to function on any project](https://github.com/ezequieltejada/video-chopper/issues/5)
+* [Allow to receive a WebHook URL to notify finished jobs](https://github.com/ezequieltejada/video-chopper/issues/6)
+* ~~(index.ts) parameterize projectId and storageBucket - it's related with receiving firebase config file.~~
+* [(src/splitAndSaveParts.ts) Explore options with the ffmpeg library](https://github.com/ezequieltejada/video-chopper/issues/7)
