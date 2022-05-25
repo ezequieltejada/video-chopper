@@ -37,13 +37,21 @@ const app = express();
 app.use(bodyParser.json())
 
 app.get('/', async (req, res) => {
-  const { videoName, parts } = req.body;
-  console.log('Fetching video');
-  const destinationPath = await fetchVideo(videoName, bucket);
-  if (destinationPath) {
-    await splitAndSaveParts(parts, destinationPath)
+  const timerProcessName = 'Video Full Process';
+  console.time(timerProcessName);
+  try {
+    const { videoName, parts } = req.body;
+    console.log('Fetching video');
+    const destinationPath = await fetchVideo(videoName, bucket);
+    if (destinationPath) {
+      await splitAndSaveParts(parts, destinationPath)
+    }
+    console.timeEnd(timerProcessName);
+    res.send('🎉 Done! 🎉');
+  } catch (error) {
+    res.status(500).json(error);
+    console.timeEnd(timerProcessName);
   }
-  res.send('🎉 Done! 🎉');
 });
 
 const server = app.listen(PORT, () => {
