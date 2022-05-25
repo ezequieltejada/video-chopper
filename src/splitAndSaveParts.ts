@@ -7,6 +7,8 @@ ffmpeg.setFfmpegPath(ffmpegPath)
 export async function splitAndSaveParts(parts:{start:string, end: string}[], destinationPath: string) {
     console.log(`Splitting ${destinationPath} in ${parts.length} parts`);
     const {name, ext, dir} = path.parse(destinationPath);
+    const timerName = 'Splitting Process';
+    console.time(timerName);
     return Promise.all(parts.map((part, index) => {
         return new Promise<void>((resolve, reject) => {
             const outputPath = `${dir}/${name}-${index}${ext}`;
@@ -26,7 +28,10 @@ export async function splitAndSaveParts(parts:{start:string, end: string}[], des
                 })
                 .run();
         });
-    }));
+    })).then((value) => {
+        console.timeEnd(timerName);
+        return value;
+    });
 }
 
 function getDuration(start: string, end: string): number {
